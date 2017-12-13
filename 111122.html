@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock-Scissors-Paper</title>
+   <link rel="stylesheet" type="text/css" href="34.css">
+</head>
+<body>
+<script>
+var userWins = 0;
+var compWins = 0;
+var nobodyWins = 0;
+function compare(userV){
+var userChoise = userV
+var computerChoice = Math.random();
+
+    if (computerChoice < 0.34) {
+      computerChoice = 1; //rock
+	  document.getElementById('CompImage').src="4.png"
+    } else if(computerChoice <= 0.67) {
+      computerChoice = 2; //scissors
+	  document.getElementById('CompImage').src="6.png"
+    } else {
+      computerChoice = 3; //paper
+	  document.getElementById('CompImage').src="5.png"
+    }
+	if (userChoise === computerChoice)
+	{
+		document.getElementById('winner').innerHTML='TRY AGAIN'
+		nobodyWins = nobodyWins + 1
+		document.getElementById('nobodyWins').innerHTML=nobodyWins
+	}
+	if ((userChoise === 1 && computerChoice === 3)||(userChoise === 2 && computerChoice === 1) ||(userChoise === 3 && computerChoice === 2))
+	{
+		document.getElementById('winner').innerHTML='YOU LOSE'
+		compWins = compWins + 1
+		document.getElementById('compWins').innerHTML=compWins
+	}
+	else if ((userChoise === 3 && computerChoice === 1)||(userChoise === 1 && computerChoice === 2) ||(userChoise === 2 && computerChoice === 3))
+	{
+		document.getElementById('winner').innerHTML='YOU WIN'
+		userWins = userWins + 1
+		document.getElementById('userWins').innerHTML=userWins
+	}
+}
+function setRock()
+	{
+		document.getElementById('UserImage').src="2.png"
+	}
+	function setScissors()
+	{
+		document.getElementById('UserImage').src="3.png"
+	}
+	function setPaper()
+	{
+		document.getElementById('UserImage').src="11.png"
+	}
+</script>
+<p align="center">MAKE YOUR CHOICE</p>
+	
+	<div class="container">
+    <img src="" width="500" height="500" id="UserImage" style="position: absolute; left:10%; top:15%"> 
+    <img width="500" height="500" id="CompImage" style="position: absolute; right:10%; top:15%"> 
+   </div>
+<div class="container">
+    <button onclick = "setScissors();compare(2)" style="position: absolute; left:30%; bottom: 15%; background-color: #E01941; layer-background-color: #E01941; border: 1px none #000000;"><img height="150" width="150" src="2.png"></button>
+	
+  <button onclick = "setPaper();compare(3)" style="position: absolute; left: 44%; bottom: 15%; background-color: #E01941; layer-background-color: #E01941; border: 1px none #000000; " ><img height="150" width="150" src="3.png" ></button>
+  <button onclick = "setRock();compare(1)" style="position: absolute; right: 30%; bottom: 15%; background-color: #E01941; layer-background-color: #E01941; border: 1px none #000000;"><img src="1.png" width="150" height="150" align="right"></button>
+  #E01941	</div>
+<p align="center" id="winner"></p>
+<!--	<p id="userWins"></p>
+<p id="nobodyWins"></p>
+	<p id="compWins"></p> -->
+</body>
+</html>
